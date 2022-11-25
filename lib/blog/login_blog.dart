@@ -18,6 +18,6 @@ class LoginBloc{
   void get changeLoginPassword => _loginPassword.sink.add('');
   void dispose(){
     _loginEmail.close();
-    _loginPassword.close();
+    _loginPassword.close();///bghghggh
   }
 }
