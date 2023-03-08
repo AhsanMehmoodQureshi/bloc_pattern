@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:bloc_pattern/blog/validators.dart';
+import 'package:bloc_pattern/blog_test/validators.dart';
 import 'package:flutter/foundation.dart';
 import 'package:rxdart/rxdart.dart';
 

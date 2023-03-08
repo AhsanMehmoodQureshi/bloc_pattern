@@ -1,10 +1,11 @@
 
 
-import 'package:bloc_pattern/blog/login_blog.dart';
-import 'package:bloc_pattern/screen/qr_scanner.dart';
-import 'package:bloc_pattern/screen/register_screen.dart';
+import 'package:bloc_pattern/screen_test/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../blog_test/login_blog.dart';
+import '../cubit_test/counter_value.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -14,9 +15,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final bloc=LoginBloc();
+  @override
+  void dispose() {
+    bloc.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final bloc=Provider.of<LoginBloc>(context,listen: false);
+    //final bloc=Provider.of<LoginBloc>(context,listen: false);
     return SafeArea(child: Scaffold(
       appBar: AppBar(
         title: const Text('Login Page',style: TextStyle(fontSize: 18,),),
@@ -81,8 +89,8 @@ class _LoginScreenState extends State<LoginScreen> {
             }, child: const Text('Register')),
             const SizedBox(height: 15,),
             TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const QRViewExample()));
-            }, child: const Text('Qr Scanner'))
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const CounterValue()));
+            }, child: const Text('Counter Value')),
           ],
         ),
       ),
